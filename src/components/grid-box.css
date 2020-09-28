@@ -1,0 +1,30 @@
+@media screen and (min-width: 700px) {
+
+  .grid-box {
+    margin-top: 2em;
+    display: grid;
+    grid-gap: 2em;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .grid-box .polling {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .grid-box .mapboxgl-map {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .grid-box .ballot-info {
+    grid-column: 2;
+    grid-row: 1 / 3;
+  }
+
+  .grid-box .ctas {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+
+}

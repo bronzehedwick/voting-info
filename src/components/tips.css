@@ -1,0 +1,14 @@
+.tips {
+  margin-top: 2em;
+  border: 1px solid #000;
+}
+
+.tips__headline {
+  padding: 0.5em;
+  border-bottom: 1px solid #000;
+}
+
+.tips__list {
+  margin-left: 2rem;
+  list-style-type: " - ";
+}

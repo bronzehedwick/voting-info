@@ -1,0 +1,21 @@
+.ctas {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.cta {
+  display: inline-block;
+  padding: 1em;
+  font-size: 1.34rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  text-decoration: none;
+  margin-top: 0.5em;
+  max-width: 15em;
+  text-align: center;
+}
+
+.cta--highlight {
+  background-color: var(--highlight-color);
+}

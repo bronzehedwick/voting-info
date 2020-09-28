@@ -1,0 +1,24 @@
+.polling__headline {
+  font-weight: bold;
+  font-family: "Fjalla One", sans-serif;
+  text-rendering: optimizeLegibility;
+  font-size: 1.62671rem;
+  line-height: 1.1;
+  display: block;
+  margin-bottom: 1.45rem;
+}
+
+.polling__search {
+  padding: 1em;
+  border: 1px solid #000;
+  width: calc(100% - 6em);
+  max-width: 690px;
+}
+
+.polling__submit {
+  border: 1px solid #000;
+  border-left: none;
+  padding: 1em;
+  color: #fff;
+  background-color: var(--primary-color);
+}

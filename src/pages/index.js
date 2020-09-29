@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-import { Link } from 'gatsby'
-
-import Address from '../components/Address'
-import Mapbox from '../components/Mapbox'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-import strings from '../util/strings'
-=======
 import React from "react"
 
 import BallotInfo from "../components/ballot-info"
@@ -20,7 +10,6 @@ import Polling from "../components/polling"
 import SEO from "../components/seo"
 import Tips from "../components/tips"
 import strings from "../util/strings"
->>>>>>> 2fd74b964efa868e5ad92773b403c9524aad54e0
 
 const IndexPage = () => (
   <Layout>

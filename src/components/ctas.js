@@ -7,7 +7,12 @@ const Ctas = ({ items }) => {
   return (
     <div className="ctas">
       {items.map(cta => (
-        <a href={cta.href} key={cta.text} className={`cta ${cta.classes}`}>
+        <a
+          href={cta.href}
+          target={cta.target || ""}
+          key={cta.text}
+          className={`cta ${cta.classes}`}
+        >
           {cta.text}
         </a>
       ))}

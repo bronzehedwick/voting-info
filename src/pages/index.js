@@ -1,4 +1,4 @@
-import React from "react"
+import React,{useState} from "react"
 
 import BallotInfo from "../components/ballot-info"
 import Ctas from "../components/ctas"
@@ -11,7 +11,9 @@ import SEO from "../components/seo"
 import Tips from "../components/tips"
 import strings from "../util/strings"
 
-const IndexPage = () => (
+const IndexPage = () => {
+  const [voterData,setVoterData]=useState(null)
+  return (
   <Layout>
     <SEO title="Home" />
     <DatesDeadlines
@@ -23,13 +25,15 @@ const IndexPage = () => (
         placeholder={strings.polling.placeholder}
         headline={strings.polling.headline}
         submit={strings.polling.submit}
+        setVoterData={setVoterData}
       />
-      <Mapbox />
+      <Mapbox voterData={voterData}/>
       <BallotInfo headline={strings.ballotInfo.headline} />
       <Ctas items={strings.ctas} />
     </GridBox>
     <Tips headline={strings.tips.headline} items={strings.tips.items} />
   </Layout>
-)
+  )
+}
 
 export default IndexPage

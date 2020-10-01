@@ -1,4 +1,4 @@
-import React,{useState} from "react"
+import React, { useState } from "react"
 
 import BallotInfo from "../components/ballot-info"
 import Ctas from "../components/ctas"
@@ -12,27 +12,27 @@ import Tips from "../components/tips"
 import strings from "../util/strings"
 
 const IndexPage = () => {
-  const [voterData,setVoterData]=useState(null)
+  const [voterData, setVoterData] = useState(null)
   return (
-  <Layout>
-    <SEO title="Home" />
-    <DatesDeadlines
-      items={strings.datesDeadlines.items}
-      headline={strings.datesDeadlines.headline}
-    />
-    <GridBox>
-      <Polling
-        placeholder={strings.polling.placeholder}
-        headline={strings.polling.headline}
-        submit={strings.polling.submit}
-        setVoterData={setVoterData}
+    <Layout>
+      <SEO title="Home" />
+      <DatesDeadlines
+        items={strings.datesDeadlines.items}
+        headline={strings.datesDeadlines.headline}
       />
-      <Mapbox voterData={voterData}/>
-      <BallotInfo headline={strings.ballotInfo.headline} />
-      <Ctas items={strings.ctas} />
-    </GridBox>
-    <Tips headline={strings.tips.headline} items={strings.tips.items} />
-  </Layout>
+      <GridBox>
+        <Polling
+          placeholder={strings.polling.placeholder}
+          headline={strings.polling.headline}
+          submit={strings.polling.submit}
+          setVoterData={setVoterData}
+        />
+        <Mapbox voterData={voterData} />
+        <BallotInfo headline={strings.ballotInfo.headline} />
+        <Ctas items={strings.ctas} />
+      </GridBox>
+      <Tips headline={strings.tips.headline} items={strings.tips.items} />
+    </Layout>
   )
 }
 

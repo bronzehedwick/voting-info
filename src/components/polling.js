@@ -3,16 +3,17 @@ import PropTypes from "prop-types"
 
 import "./polling.css"
 
-const Polling = (props,{ headline, placeholder, submit }) => {
-
-  const handleSubmit=(e)=>{
+const Polling = (props, { headline, placeholder, submit }) => {
+  const handleSubmit = e => {
     e.preventDefault()
     const streetNumber = e.target.streetNumber.value
     const streetName = e.target.streetName.value
 
-    fetch(`https://astoria-tech-voting-info-backend-master.dev.shipyard.host/api/v1/pollsite/${streetNumber}/${streetName}`)
-    .then(r=>r.json())
-    .then(data=>props.setVoterData(data));
+    fetch(
+      `https://astoria-tech-voting-info-backend-master.dev.shipyard.host/api/v1/pollsite/${streetNumber}/${streetName}`
+    )
+      .then(r => r.json())
+      .then(data => props.setVoterData(data))
   }
   return (
     <form className="polling" action="#" onSubmit={handleSubmit}>
@@ -23,13 +24,13 @@ const Polling = (props,{ headline, placeholder, submit }) => {
         type="search"
         id="streetNumber"
         className="polling__search"
-        placeholder={'Street Number'}
+        placeholder={"Street Number"}
       />
       <input
         type="search"
         id="streetName"
         className="polling__search"
-        placeholder={'Street Name'}
+        placeholder={"Street Name"}
       />
       <input type="submit" className="polling__submit" value={submit} />
     </form>

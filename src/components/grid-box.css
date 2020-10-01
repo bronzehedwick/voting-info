@@ -1,7 +1,10 @@
+.grid-box {
+  margin-top: 2em;
+}
+
 @media screen and (min-width: 700px) {
 
   .grid-box {
-    margin-top: 2em;
     display: grid;
     grid-gap: 2em;
     grid-template-columns: 2fr 1fr;

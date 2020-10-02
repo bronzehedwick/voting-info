@@ -38,12 +38,14 @@ export const strings = new LocalizedStrings({
     ctas: [
       {
         text: "Update your voter registration",
-        href: "#",
+        href: "https://dmv.ny.gov/address-change/how-change-your-address",
+        target: "blank",
         classes: "",
       },
       {
         text: "Apply for Absentee Ballot",
-        href: "#",
+        href: "https://nycabsentee.com/",
+        target: "blank",
         classes: "",
       },
       {

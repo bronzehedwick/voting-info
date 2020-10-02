@@ -202,9 +202,11 @@ button::-moz-focus-inner {
 button:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
+a:link:hover,
 input[type="submit"]:hover,
 button:hover {
   cursor: pointer;
+  filter: brightness(120%);
 }
 fieldset {
   border: 1px solid silver;

@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  
+  frontend:
+    labels:
+      shipyard.route: '/'
+    build: 'frontend'
+    environment:
+      GATSBY_MAPBOX_ACCESS_TOKEN: ${GATSBY_MAPBOX_ACCESS_TOKEN}
+    volumes:
+    - "./frontend/src:/srv/src"
+    ports:
+    - "8000:8000"
+
+  backend:
+    labels:
+      shipyard.route: "/api"
+    build: 'backend'
+    volumes:
+    - "./backend/src:/srv/src"
+    ports:
+    - "3000:3000"

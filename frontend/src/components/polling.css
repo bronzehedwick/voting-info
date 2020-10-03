@@ -5,7 +5,11 @@
 .polling__form {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  margin-top: 0.75em;
+}
+
+.polling__search {
+  margin-right: 2em;
 }
 
 .polling__form > * {

@@ -19,28 +19,17 @@ const Mapbox = props => {
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v11",
       center: [-73.9235, 40.7644],
-      zoom: 12.3,
+      zoom: 13.0,
     })
     map.scrollZoom.disable()
     map.on("load", () => {
       if (!props.voterData) {
         new mapboxgl.Popup({ offset: -25 })
           .setLngLat([-73.9235, 40.7644])
-          .setHTML("<h3>Enter Address Above to View Your Polling Place!</h3>")
           .addTo(map)
         map.addSource("nyc", {
           type: "geojson",
           data: "https://data.cityofnewyork.us/resource/7t3b-ywvw.geojson",
-        })
-        map.addLayer({
-          id: "nyc-fill",
-          type: "fill",
-          source: "nyc",
-          layout: {},
-          paint: {
-            "fill-color": "#000",
-            "fill-opacity": 0.5,
-          },
         })
       } else {
         const earlyVotingPopup = new mapboxgl.Popup({ offset: 25 }).setHTML(
@@ -72,7 +61,16 @@ const Mapbox = props => {
     })
   }, [props.voterData])
 
-  return <div ref={el => (mapContainer.current = el)} id="mapbox" />
+  return (
+    <div className="mapbox-container">
+      {props.voterData === null && (
+        <div class="map-overlay">
+          <span>Enter your address above to locate your polling sites!</span>
+        </div>
+      )}
+      <div ref={el => (mapContainer.current = el)} id="mapbox" />
+    </div>
+  )
 }
 
 export default Mapbox

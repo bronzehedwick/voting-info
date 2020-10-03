@@ -7,22 +7,22 @@ export const strings = new LocalizedStrings({
       items: [
         {
           text: "Last day of applying for absentee ballot by mail",
-          date: "Oct 09 (Fri)",
+          date: "FRI, Oct 09",
           datetime: "2020-10-09",
         },
         {
           text: "Early voting begins",
-          date: "Oct 24 (Sat)",
+          date: "SAT, Oct 24",
           datetime: "2020-10-24",
         },
         {
           text: "Early voting ends",
-          date: "Nov 01 (Sun)",
+          date: "SUN, Nov 01",
           datetime: "2020-11-01",
         },
         {
           text: "Election day, vote in person",
-          date: "Nov 03 (Tue)",
+          date: "TUE, Nov 03",
           datetime: "2020-11-03",
         },
       ],
@@ -48,17 +48,23 @@ export const strings = new LocalizedStrings({
       {
         text: "Update your voter registration",
         href: "https://dmv.ny.gov/address-change/how-change-your-address",
-        target: "blank",
+        target: "_blank",
         classes: "",
       },
       {
-        text: "Apply for Absentee Ballot",
+        text: "Apply for absentee ballot",
         href: "https://nycabsentee.com/",
-        target: "blank",
+        target: "_blank",
         classes: "",
       },
       {
-        text: "Look for a Ride to Your Polling Station",
+        text: "Look up candidates on your ballot",
+        href: "https://onyourballot.vote411.org/build.do",
+        target: "_blank",
+        classes: "",
+      },
+      {
+        text: "Request ride to your Polling Station",
         href: "#",
         classes: "cta--highlight",
       },
@@ -123,16 +129,25 @@ export const strings = new LocalizedStrings({
       {
         text: "Actualice su registro de votante",
         href: "#",
+        target: "_blank",
         classes: "",
       },
       {
         text: "Solicite una boleta de voto ausente",
         href: "#",
+        target: "_blank",
+        classes: "",
+      },
+      {
+        text: "Busca sus candidatos",
+        href: "https://onyourballot.vote411.org/build.do",
+        target: "_blank",
         classes: "",
       },
       {
         text: "Busque transporte a su colegio electoral",
         href: "#",
+        target: "_blank",
         classes: "cta--highlight",
       },
     ],

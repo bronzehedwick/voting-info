@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 
-import BallotInfo from "../components/ballot-info"
 import Ctas from "../components/ctas"
 import DatesDeadlines from "../components/dates-deadlines"
 import GridBox from "../components/grid-box"
@@ -28,7 +27,6 @@ const IndexPage = () => {
           setVoterData={setVoterData}
         />
         <Mapbox voterData={voterData} />
-        <BallotInfo headline={strings.ballotInfo.headline} />
         <Ctas items={strings.ctas} />
       </GridBox>
       <Tips headline={strings.tips.headline} items={strings.tips.items} />

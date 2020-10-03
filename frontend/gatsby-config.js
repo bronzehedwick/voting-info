@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Astorians' Voting Guide 2020`,
+    title: `Astoria Voting Guide`,
     description: `Register to vote!`,
     author: `astoria.digital`,
   },
@@ -18,7 +18,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `astorians-voting-guide-2020`,
+        name: `astoria-voting-guide-2020`,
         short_name: `voting-guide`,
         start_url: `/`,
         background_color: `#6D3C7E`,
@@ -31,4 +31,8 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
+  proxy: {
+    prefix: "/api",
+    url: "http://backend:3000",
+  },
 }

@@ -5,13 +5,17 @@
 .dates-deadlines__headline {
   padding: 0.5em;
   border-bottom: 1px solid #000;
-  background-color: var(--danger-color);
+  background-color: var(--highlight-color);
   color: #fff;
 }
 
 .dates-deadlines__list {
   list-style-type: none;
   margin-right: 0.5em;
+}
+
+.dates-deadlines__date {
+  font-weight: bold;
 }
 
 .dates-deadlines__text {

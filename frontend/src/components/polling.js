@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 
 import "./polling.css"
@@ -9,9 +9,7 @@ const Polling = props => {
     const streetNumber = e.target.streetNumber.value
     const streetName = e.target.streetName.value
 
-    fetch(
-      `https://astoria-tech-voting-info-backend-master.dev.shipyard.host/api/v1/pollsite/${streetNumber}/${streetName}`
-    )
+    fetch(`/api/v1/pollsite/${streetNumber}/${streetName}`)
       .then(r => r.json())
       .then(data => props.setVoterData(data))
   }

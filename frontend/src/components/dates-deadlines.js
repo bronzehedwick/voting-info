@@ -9,8 +9,10 @@ const DatesDeadlines = ({ items, headline }) => (
     <ul className="dates-deadlines__list">
       {items.map(item => (
         <li className="dates-deadlines__item">
-          <time dateTime={item.datetime}>{item.date}</time> —{" "}
-          <span className="dates-deadlines__text">{item.text}</span>
+          <time className="dates-deadlines__date" dateTime={item.datetime}>
+            {item.date}
+          </time>{" "}
+          — <span className="dates-deadlines__text">{item.text}</span>
         </li>
       ))}
     </ul>

@@ -8,9 +8,10 @@ jobs:
     container: node:14
     steps:
     - uses: actions/checkout@v2
+    - working-directory: frontend
     - run: npm ci
     - run: npm run lint
-#     - run: npm test # Uncomment if/when we actually add tests
+    # - run: npm test # Uncomment if/when we actually add tests
 
   build:
     needs: [lint]

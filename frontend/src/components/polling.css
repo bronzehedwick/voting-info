@@ -1,18 +1,15 @@
 .polling__headline {
-  font-weight: bold;
-  font-family: "Fjalla One", sans-serif;
-  text-rendering: optimizeLegibility;
-  font-size: 1.62671rem;
-  line-height: 1.1;
-  display: block;
-  margin-bottom: 1.45rem;
+  margin-bottom: 0;
 }
 
-.polling {
-  padding: 1em;
-  border: 1px solid #000;
-  width: calc(100% - 6em);
-  max-width: 690px;
+.polling__form {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.polling__form > * {
+  margin-top: 1em;
 }
 
 .polling__submit {

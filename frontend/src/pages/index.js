@@ -22,7 +22,7 @@ const IndexPage = () => {
       />
       <GridBox>
         <Polling
-          placeholder={strings.polling.placeholder}
+          items={strings.polling.items}
           headline={strings.polling.headline}
           submit={strings.polling.submit}
           setVoterData={setVoterData}

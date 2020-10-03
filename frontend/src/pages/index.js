@@ -16,10 +16,6 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <DatesDeadlines
-        items={strings.datesDeadlines.items}
-        headline={strings.datesDeadlines.headline}
-      />
       <GridBox>
         <Polling
           items={strings.polling.items}
@@ -28,7 +24,13 @@ const IndexPage = () => {
           setVoterData={setVoterData}
         />
         <Mapbox voterData={voterData} />
-        <BallotInfo headline={strings.ballotInfo.headline} />
+        <aside className="grid-sidebar">
+          <DatesDeadlines
+            items={strings.datesDeadlines.items}
+            headline={strings.datesDeadlines.headline}
+          />
+          <BallotInfo headline={strings.ballotInfo.headline} />
+        </aside>
         <Ctas items={strings.ctas} />
       </GridBox>
       <Tips headline={strings.tips.headline} items={strings.tips.items} />

@@ -9,7 +9,9 @@ const Tips = ({ headline, items }) => {
       <h2 className="tips__headline">{headline}</h2>
       <ul className="tips__list">
         {items.map(tip => (
-          <li className="tips__item">{tip}</li>
+          <li key={tip} className="tips__item">
+            {tip}
+          </li>
         ))}
       </ul>
     </section>

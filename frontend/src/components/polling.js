@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 import "./polling.css"
 
-const Polling = (props, { headline, placeholder, submit }) => {
+const Polling = props => {
   const handleSubmit = e => {
     e.preventDefault()
     const streetNumber = e.target.streetNumber.value
@@ -15,31 +15,38 @@ const Polling = (props, { headline, placeholder, submit }) => {
       .then(r => r.json())
       .then(data => props.setVoterData(data))
   }
+
   return (
-    <form className="polling" action="#" onSubmit={handleSubmit}>
-      <label className="polling__headline" htmlFor="polling-search">
-        {headline}
-      </label>
-      <input
-        type="search"
-        id="streetNumber"
-        className="polling__search"
-        placeholder={"Street Number"}
-      />
-      <input
-        type="search"
-        id="streetName"
-        className="polling__search"
-        placeholder={"Street Name"}
-      />
-      <input type="submit" className="polling__submit" value={submit} />
-    </form>
+    <div className="polling">
+      <h2 className="polling__headline">{props.headline}</h2>
+      <form className="polling__form" action="#" onSubmit={handleSubmit}>
+        <label>
+          <div>{props.items[0].label}</div>
+          <input
+            type="search"
+            id="streetNumber"
+            className="polling__search"
+            placeholder={props.items[0].placeholder}
+          />
+        </label>
+        <label>
+          <div>{props.items[1].label}</div>
+          <input
+            type="search"
+            id="streetName"
+            className="polling__search"
+            placeholder={props.items[1].placeholder}
+          />
+        </label>
+        <input type="submit" className="polling__submit" value={props.submit} />
+      </form>
+    </div>
   )
 }
 
 Polling.propTypes = {
   headline: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
+  items: PropTypes.array.isRequired,
   submit: PropTypes.string.isRequired,
 }
 

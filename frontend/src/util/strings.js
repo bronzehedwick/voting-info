@@ -28,8 +28,17 @@ export const strings = new LocalizedStrings({
       ],
     },
     polling: {
-      headline: "Your Polling Stations",
-      placeholder: "Your address",
+      headline: "Find your polling place",
+      items: [
+        {
+          label: "Street number",
+          placeholder: "Your street number",
+        },
+        {
+          label: "Street name",
+          placeholder: "Your street name",
+        },
+      ],
       submit: "Search",
     },
     ballotInfo: {
@@ -92,7 +101,18 @@ export const strings = new LocalizedStrings({
       ],
     },
     polling: {
-      headline: "Tus mesas de votación",
+      headline: "Encuentra tu lugar de votación",
+      items: [
+        {
+          label: "número de calle",
+          placeholder: "Tu numero de calle",
+        },
+        {
+          label: "nombre de la calle",
+          placeholder: "El nombre de tu calle",
+        },
+      ],
+      submit: "Buscar",
     },
     ballotInfo: {
       headline: "Información de la boleta",

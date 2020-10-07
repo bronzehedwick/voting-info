@@ -7,7 +7,6 @@ import Layout from "../components/layout"
 import Mapbox from "../components/Mapbox"
 import Polling from "../components/polling"
 import SEO from "../components/seo"
-import Tips from "../components/tips"
 import strings from "../util/strings"
 
 const IndexPage = () => {
@@ -29,7 +28,6 @@ const IndexPage = () => {
         <Mapbox voterData={voterData} />
         <Ctas items={strings.ctas} />
       </GridBox>
-      <Tips headline={strings.tips.headline} items={strings.tips.items} />
     </Layout>
   )
 }

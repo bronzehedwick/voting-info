@@ -59,7 +59,7 @@ export const strings = new LocalizedStrings({
       },
       {
         text: "Look up candidates on your ballot",
-        href: "https://onyourballot.vote411.org/build.do",
+        href: "https://ballotpedia.org/Sample_Ballot_Lookup",
         target: "_blank",
         classes: "",
       },
@@ -79,6 +79,7 @@ export const strings = new LocalizedStrings({
       ],
     },
   },
+
   es: {
     datesDeadlines: {
       headline: "Fechas y plazos importantes",
@@ -140,7 +141,7 @@ export const strings = new LocalizedStrings({
       },
       {
         text: "Busca sus candidatos",
-        href: "https://onyourballot.vote411.org/build.do",
+        href: "https://ballotpedia.org/Sample_Ballot_Lookup",
         target: "_blank",
         classes: "",
       },

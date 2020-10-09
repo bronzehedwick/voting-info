@@ -6,7 +6,12 @@ import "./mapbox.css"
 
 const Mapbox = props => {
   const mapContainer = useRef(null)
-
+  // const distance=(x1,x2,y1,y2)=>{
+  //   return Math.sqrt(Math.pow(x2-x1,2)+Math.pow(y2-y1,2))
+  // }
+  // const getZoom=(distance)=>{
+  //   return 15-distance*130
+  // }
   const createPopup = (earlyBool, name, addr) => {
     let vote
     if (earlyBool) vote = "Early"
@@ -19,20 +24,12 @@ const Mapbox = props => {
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v11",
       center: [-73.9235, 40.7644],
-      zoom: 13.0,
+      zoom: 12.1,
     })
     map.scrollZoom.disable()
     map.on("load", () => {
-      if (!props.voterData) {
-        new mapboxgl.Popup({ offset: -25 })
-          .setLngLat([-73.9235, 40.7644])
-          .addTo(map)
-        map.addSource("nyc", {
-          type: "geojson",
-          data: "https://data.cityofnewyork.us/resource/7t3b-ywvw.geojson",
-        })
-      } else {
-        const earlyVotingPopup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+      if (props.voterData) {
+        const earlyVotingPopup = new mapboxgl.Popup({}).setHTML(
           createPopup(
             true,
             props.voterData.ev_site_name,
@@ -46,17 +43,21 @@ const Mapbox = props => {
             props.voterData.site_address
           )
         )
-        new mapboxgl.Marker()
+        const evMarker = new mapboxgl.Marker()
           .setLngLat([
             props.voterData.ev_longitude,
             props.voterData.ev_latitude,
           ])
           .setPopup(earlyVotingPopup)
           .addTo(map)
-        new mapboxgl.Marker()
+        const normalMarker = new mapboxgl.Marker()
           .setLngLat([props.voterData.longitude, props.voterData.latitude])
           .setPopup(normalVotingPopup)
           .addTo(map)
+          map.flyTo({
+            center:[props.voterData.ev_longitude,props.voterData.ev_latitude],
+            essential:true
+          })
       }
     })
   }, [props.voterData])

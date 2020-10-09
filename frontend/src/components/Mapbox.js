@@ -6,11 +6,28 @@ import "./mapbox.css"
 
 const Mapbox = props => {
   const mapContainer = useRef(null)
-  // const distance=(x1,x2,y1,y2)=>{
-  //   return Math.sqrt(Math.pow(x2-x1,2)+Math.pow(y2-y1,2))
-  // }
-  // const getZoom=(distance)=>{
-  //   return 15-distance*130
+  // const getNeSw=(coord1,coord2)=>{
+  //   const rectangle = [
+  //     coord1,
+  //     coord2,
+  //     [coord1[0],coord2[1]],
+  //     [coord1[1],coord2[0]]
+  //   ]
+  //   let ne = coord1
+  //   let sw = coord1
+  //   let x,y
+  //   rectangle.forEach(coord=>{
+  //     if(y>ne[1]&&x>ne[0]) {
+  //       x = parseFloat(coord[0])+.01
+  //       y = parseFloat(coord[1])+.01
+  //       ne = [x,y]
+  //     }else if(y<sw[1]&&x<sw[0]){
+  //       x = parseFloat(coord[0])-.01
+  //       y = parseFloat(coord[1])-.01
+  //       sw = [x,y]
+  //     }
+  //   })
+  //   return [ne,sw]
   // }
   const createPopup = (earlyBool, name, addr) => {
     let vote
@@ -50,12 +67,13 @@ const Mapbox = props => {
           ])
           .setPopup(earlyVotingPopup)
           .addTo(map)
+          .togglePopup()
         const normalMarker = new mapboxgl.Marker()
           .setLngLat([props.voterData.longitude, props.voterData.latitude])
           .setPopup(normalVotingPopup)
           .addTo(map)
           map.flyTo({
-            center:[props.voterData.ev_longitude,props.voterData.ev_latitude],
+            center:[props.voterData.ev_longitude,props.voterData.ev_latitude],zoom:13,
             essential:true
           })
       }

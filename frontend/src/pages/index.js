@@ -2,6 +2,7 @@ import React, { useState } from "react"
 
 import Ctas from "../components/ctas"
 import DatesDeadlines from "../components/dates-deadlines"
+import VotingPhones from "../components/voting-phones"
 import Layout from "../components/layout"
 import Mapbox from "../components/Mapbox"
 import Polling from "../components/polling"
@@ -13,10 +14,13 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <DatesDeadlines
-        items={strings.datesDeadlines.items}
-        headline={strings.datesDeadlines.headline}
-      />
+      <div className="two-up">
+        <DatesDeadlines
+          items={strings.datesDeadlines.items}
+          headline={strings.datesDeadlines.headline}
+        />
+        <VotingPhones />
+      </div>
       <Polling
         items={strings.polling.items}
         headline={strings.polling.headline}

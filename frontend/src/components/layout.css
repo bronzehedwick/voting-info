@@ -58,6 +58,7 @@ template {
   display: none;
 }
 a {
+  color: var(--primary-color);
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
@@ -634,4 +635,14 @@ footer a {
   html {
     font-size: 100%;
   }
+}
+.two-up {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+.two-up > * {
+  width: 500px;
+  margin-bottom: 1em;
+  margin-right: 1em;
 }

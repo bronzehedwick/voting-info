@@ -6,34 +6,14 @@ import "./mapbox.css"
 
 const Mapbox = props => {
   const mapContainer = useRef(null)
-  // const getNeSw=(coord1,coord2)=>{
-  //   const rectangle = [
-  //     coord1,
-  //     coord2,
-  //     [coord1[0],coord2[1]],
-  //     [coord1[1],coord2[0]]
-  //   ]
-  //   let ne = coord1
-  //   let sw = coord1
-  //   let x,y
-  //   rectangle.forEach(coord=>{
-  //     if(y>ne[1]&&x>ne[0]) {
-  //       x = parseFloat(coord[0])+.01
-  //       y = parseFloat(coord[1])+.01
-  //       ne = [x,y]
-  //     }else if(y<sw[1]&&x<sw[0]){
-  //       x = parseFloat(coord[0])-.01
-  //       y = parseFloat(coord[1])-.01
-  //       sw = [x,y]
-  //     }
-  //   })
-  //   return [ne,sw]
-  // }
+  const [schedule,setSchedule] = useState(false)
   const createPopup = (earlyBool, name, addr) => {
     let vote
     if (earlyBool) vote = "Early"
     else vote = "Normal"
-    return `<h3>${vote} Voting Location</h3><p>${name}<br/>${addr}</p>`
+    return `
+    <h3>${vote} Voting Location</h3>
+    <p>${name}<br/>${addr}</p>`
   }
   useEffect(() => {
     mapboxgl.accessToken = process.env.GATSBY_MAPBOX_ACCESS_TOKEN
@@ -53,6 +33,13 @@ const Mapbox = props => {
             props.voterData.ev_site_address
           )
         )
+        earlyVotingPopup.on('open',(e)=>{
+          setSchedule(true)
+        })
+        earlyVotingPopup.on('close',(e)=>{
+          setSchedule(false)
+        })
+
         const normalVotingPopup = new mapboxgl.Popup({ offset: 25 }).setHTML(
           createPopup(
             false,
@@ -87,7 +74,62 @@ const Mapbox = props => {
           <span>Enter your address above to locate your polling sites!</span>
         </div>
       )}
-      <div ref={el => (mapContainer.current = el)} id="mapbox" />
+      <div ref={el => (mapContainer.current = el)} id="mapbox"/>
+      {schedule&&<div class="evSchedule">        
+      <h3>Early Voting Schedule</h3>
+        <table>
+          <tr>
+              <th>Day</th>
+              <th>Date</th>
+              <th>Hours</th>
+          </tr>
+          <tr>
+              <td>Saturday</td>
+              <td>October 24, 2020</td>
+              <td>10 AM to 4 PM</td>
+          </tr>
+          <tr>
+              <td>Sunday</td>
+              <td>October 25, 2020</td>
+              <td>10 AM to 4 PM</td>
+          </tr>
+          <tr>
+              <td>Monday</td>
+              <td>October 26, 2020</td>
+              <td>7 AM to 3 PM</td>
+          </tr>
+          <tr>
+              <td>Tuesday</td>
+              <td>October 27, 2020</td>
+              <td>12 PM to 8 PM</td>
+          </tr>
+          <tr>
+              <td>Wednesday</td>
+              <td>October 28, 2020</td>
+              <td>12 PM to 8 PM</td>
+          </tr>
+          <tr>
+              <td>Thursday</td>
+              <td>October 29, 2020</td>
+              <td>10 AM to 6 PM</td>
+          </tr>
+          <tr>
+              <td>Friday</td>
+              <td>October 30, 2020</td>
+              <td>7 AM to 3 PM</td>
+          </tr>
+          <tr>
+              <td>Saturday</td>
+              <td>October 31, 2020</td>
+              <td>10 AM to 4 PM</td>
+          </tr>
+          <tr>
+              <td>Sunday</td>
+              <td>November 1, 2020</td>
+              <td>10 AM to 4 PM</td>
+          </tr>
+        </table>
+      </div>}
     </div>
   )
 }

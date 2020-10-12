@@ -3,6 +3,7 @@
 }
 
 .dates-deadlines__headline {
+  margin-top: 0;
   padding: 0.5em;
   border-bottom: 1px solid #000;
   background-color: var(--highlight-color);

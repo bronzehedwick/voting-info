@@ -3,8 +3,22 @@
   height: 40vh;
   margin-bottom: 2em;
   position: relative;
+<<<<<<< HEAD
 }
-
+.evSchedule {
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 40vh;
+  overflow: scroll;
+}
+.evSchedule table {
+  font-size: 1rem;
+=======
+>>>>>>> d373d2282acf2b16a0a84ba433a65a94fa533c36
+}
 .map-overlay {
   display: flex;
   justify-content: center;

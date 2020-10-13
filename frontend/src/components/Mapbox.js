@@ -2,11 +2,14 @@ import React, { useEffect, useRef, useState } from "react"
 import mapboxgl from "mapbox-gl"
 import "mapbox-gl/dist/mapbox-gl.css"
 
+import {early,normal} from './Schedule'
 import "./mapbox.css"
 
 const Mapbox = props => {
   const mapContainer = useRef(null)
-  const [schedule,setSchedule] = useState(false)
+  const [schedule,setSchedule] = useState(null)
+  const [evSchedule,setEVSchedule] = useState(null)
+  const [content,setContent] = useState(null)
   const createPopup = (earlyBool, name, addr) => {
     let vote
     if (earlyBool) vote = "Early"
@@ -34,19 +37,27 @@ const Mapbox = props => {
           )
         )
         earlyVotingPopup.on('open',(e)=>{
-          setSchedule(true)
+          setContent(early)
+          setEVSchedule(true)
         })
         earlyVotingPopup.on('close',(e)=>{
-          setSchedule(false)
+          setEVSchedule(false)
         })
 
-        const normalVotingPopup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+        const normalVotingPopup = new mapboxgl.Popup({}).setHTML(
           createPopup(
             false,
             props.voterData.site_name,
             props.voterData.site_address
           )
         )
+        normalVotingPopup.on('open',(e)=>{
+          setContent(normal)
+          setSchedule(true)
+        })
+        normalVotingPopup.on('close',(e)=>{
+          setSchedule(false)
+        })
         const evMarker = new mapboxgl.Marker()
           .setLngLat([
             props.voterData.ev_longitude,
@@ -75,61 +86,7 @@ const Mapbox = props => {
         </div>
       )}
       <div ref={el => (mapContainer.current = el)} id="mapbox"/>
-      {schedule&&<div class="evSchedule">        
-      <h3>Early Voting Schedule</h3>
-        <table>
-          <tr>
-              <th>Day</th>
-              <th>Date</th>
-              <th>Hours</th>
-          </tr>
-          <tr>
-              <td>Saturday</td>
-              <td>October 24, 2020</td>
-              <td>10 AM to 4 PM</td>
-          </tr>
-          <tr>
-              <td>Sunday</td>
-              <td>October 25, 2020</td>
-              <td>10 AM to 4 PM</td>
-          </tr>
-          <tr>
-              <td>Monday</td>
-              <td>October 26, 2020</td>
-              <td>7 AM to 3 PM</td>
-          </tr>
-          <tr>
-              <td>Tuesday</td>
-              <td>October 27, 2020</td>
-              <td>12 PM to 8 PM</td>
-          </tr>
-          <tr>
-              <td>Wednesday</td>
-              <td>October 28, 2020</td>
-              <td>12 PM to 8 PM</td>
-          </tr>
-          <tr>
-              <td>Thursday</td>
-              <td>October 29, 2020</td>
-              <td>10 AM to 6 PM</td>
-          </tr>
-          <tr>
-              <td>Friday</td>
-              <td>October 30, 2020</td>
-              <td>7 AM to 3 PM</td>
-          </tr>
-          <tr>
-              <td>Saturday</td>
-              <td>October 31, 2020</td>
-              <td>10 AM to 4 PM</td>
-          </tr>
-          <tr>
-              <td>Sunday</td>
-              <td>November 1, 2020</td>
-              <td>10 AM to 4 PM</td>
-          </tr>
-        </table>
-      </div>}
+      {(schedule||evSchedule)&&<div class="schedule">{content}</div>}
     </div>
   )
 }

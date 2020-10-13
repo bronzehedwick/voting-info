@@ -4,7 +4,7 @@
   margin-bottom: 2em;
   position: relative;
 }
-.evSchedule {
+.schedule {
   background-color: white;
   position: absolute;
   top: 0;
@@ -13,7 +13,7 @@
   height: 40vh;
   overflow: scroll;
 }
-.evSchedule table {
+.schedule table {
   font-size: 1rem;
 }
 .map-overlay {

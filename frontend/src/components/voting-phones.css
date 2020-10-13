@@ -1,0 +1,23 @@
+.voting-phones {
+  border: 1px solid #000;
+}
+
+.voting-phones__headline {
+  margin-top: 0;
+  padding: 0.5em;
+  border-bottom: 1px solid #000;
+}
+
+.voting-phones__list {
+  list-style-type: none;
+  margin-right: 0.5em;
+}
+
+.voting-phones__label {
+  font-weight: bold;
+}
+
+.voting-phones__text {
+  margin-left: 2ch;
+  margin-right: 2ch;
+}

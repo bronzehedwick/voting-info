@@ -3,6 +3,7 @@
   height: 40vh;
   margin-bottom: 2em;
   position: relative;
+<<<<<<< HEAD
 }
 .evSchedule {
   background-color: white;
@@ -15,19 +16,15 @@
 }
 .evSchedule table {
   font-size: 1rem;
+=======
+>>>>>>> d373d2282acf2b16a0a84ba433a65a94fa533c36
 }
 .map-overlay {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
-
-  padding-left: 3rem;
-  padding-right: 6rem;
-
-  background: white;
-  opacity: 0.8;
-
+  background-color: rgba(255, 255, 255, 0.8);
   position: absolute;
   width: 100%;
   height: 40vh;

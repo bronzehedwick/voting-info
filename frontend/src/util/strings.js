@@ -63,19 +63,14 @@ export const strings = new LocalizedStrings({
         target: "_blank",
         classes: "",
       },
-      {
-        text: "Request ride to your Polling Station",
-        href: "#",
-        classes: "cta--highlight",
-      },
     ],
     tips: {
       headline: "Essential Tips",
       items: [
-        "One Lorem ibsum dolar mat",
-        "Two Lorem ibsum dolar mat",
-        "Three Lorem ibsum dolar mat",
-        "Four Lorem ibsum dolar mat",
+        "If you haven't voted in New York before, bring an ID.",
+        "Keep a safe distance from other voters.",
+        "Wear a mask.",
+        "Bring a black pen.",
       ],
     },
   },
@@ -144,12 +139,6 @@ export const strings = new LocalizedStrings({
         href: "https://ballotpedia.org/Sample_Ballot_Lookup",
         target: "_blank",
         classes: "",
-      },
-      {
-        text: "Busque transporte a su colegio electoral",
-        href: "#",
-        target: "_blank",
-        classes: "cta--highlight",
       },
     ],
     tips: {

@@ -7,8 +7,8 @@ export const strings = new LocalizedStrings({
       items: [
         {
           text: "Last day of applying for absentee ballot by mail",
-          date: "FRI, Oct 09",
-          datetime: "2020-10-09",
+          date: "TUE, Oct 27",
+          datetime: "2020-10-27",
         },
         {
           text: "Early voting begins",

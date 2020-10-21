@@ -7,6 +7,7 @@ import "./mapbox.css"
 
 const Mapbox = props => {
   const mapContainer = useRef(null)
+  const [overlay, setOverlay] = useState("Enter your address above to locate your polling sites!")
   const [schedule, setSchedule] = useState(null)
   const [evSchedule, setEVSchedule] = useState(null)
   const [content, setContent] = useState(null)
@@ -29,6 +30,11 @@ const Mapbox = props => {
     map.scrollZoom.disable()
     map.on("load", () => {
       if (props.voterData) {
+        if (props.voterData.name === "Error") {
+          setOverlay("Address not found. Please try again.")
+          setContent(null)
+          return 
+        }
         const earlyVotingPopup = new mapboxgl.Popup({}).setHTML(
           createPopup(
             true,
@@ -81,9 +87,9 @@ const Mapbox = props => {
 
   return (
     <div className="mapbox-container">
-      {props.voterData === null && (
+      {!content && (
         <div className="map-overlay">
-          <span>Enter your address above to locate your polling sites!</span>
+          <span>{overlay}</span>
         </div>
       )}
       <div ref={el => (mapContainer.current = el)} id="mapbox" />

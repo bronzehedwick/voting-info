@@ -35,3 +35,22 @@
 
 #mapbox {
 }
+
+@media screen and (max-width: 1172px) {
+  #mapbox {
+    height: 40vw;
+  }
+  .mapbox-container {
+    height: auto;
+    display: grid;
+    grid-column: 1;
+    grid-gap: 1em;
+  }
+  .map-overlay {
+    height: 40vw;
+  }
+  .schedule {
+    position: relative;
+    width: 100%;
+  }
+}

@@ -1,4 +1,3 @@
-import PropTypes from "prop-types"
 import React from "react"
 
 import "./voting-phones.css"
@@ -6,7 +5,9 @@ import "./voting-phones.css"
 const VotingPhones = () => (
   <section className="voting-phones">
     <h2 className="voting-phones__headline">Voting Information Helplines</h2>
-    <p className="voting-phones__text">All resources are nonpartisan, and here to help with any issues.</p>
+    <p className="voting-phones__text">
+      All resources are nonpartisan, and here to help with any issues.
+    </p>
     <ul className="voting-phones__list">
       <li className="voting-phones__item">
         <span className="voting-phones__label">English</span>
@@ -31,10 +32,5 @@ const VotingPhones = () => (
     </ul>
   </section>
 )
-
-VotingPhones.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.object).isRequired,
-  headline: PropTypes.string.isRequired,
-}
 
 export default VotingPhones

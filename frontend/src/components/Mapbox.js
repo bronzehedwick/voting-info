@@ -85,7 +85,7 @@ const Mapbox = props => {
           <span>Enter your address above to locate your polling sites!</span>
         </div>
       )}
-        <div ref={el => (mapContainer.current = el)} id="mapbox"/>
+      <div ref={el => (mapContainer.current = el)} id="mapbox"/>
       {(schedule||evSchedule)&&<div class="schedule">{content}</div>}
     </div>
   )

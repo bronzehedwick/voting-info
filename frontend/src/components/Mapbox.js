@@ -2,15 +2,15 @@ import React, { useEffect, useRef, useState } from "react"
 import mapboxgl from "mapbox-gl"
 import "mapbox-gl/dist/mapbox-gl.css"
 
-import {early,normal} from './Schedule'
+import { early, normal } from "./Schedule"
 import "./mapbox.css"
 
 const Mapbox = props => {
   const mapContainer = useRef(null)
   const [overlay, setOverlay] = useState("Enter your address above to locate your polling sites!")
-  const [schedule,setSchedule] = useState(null)
-  const [evSchedule,setEVSchedule] = useState(null)
-  const [content,setContent] = useState(null)
+  const [schedule, setSchedule] = useState(null)
+  const [evSchedule, setEVSchedule] = useState(null)
+  const [content, setContent] = useState(null)
   const createPopup = (earlyBool, name, addr) => {
     let vote
     if (earlyBool) vote = "Early"
@@ -42,11 +42,11 @@ const Mapbox = props => {
             props.voterData.ev_site_address
           )
         )
-        earlyVotingPopup.on('open',(e)=>{
+        earlyVotingPopup.on("open", e => {
           setContent(early)
           setEVSchedule(true)
         })
-        earlyVotingPopup.on('close',(e)=>{
+        earlyVotingPopup.on("close", e => {
           setEVSchedule(false)
         })
 
@@ -57,14 +57,14 @@ const Mapbox = props => {
             props.voterData.site_address
           )
         )
-        normalVotingPopup.on('open',(e)=>{
+        normalVotingPopup.on("open", e => {
           setContent(normal)
           setSchedule(true)
         })
-        normalVotingPopup.on('close',(e)=>{
+        normalVotingPopup.on("close", e => {
           setSchedule(false)
         })
-        const evMarker = new mapboxgl.Marker()
+        new mapboxgl.Marker()
           .setLngLat([
             props.voterData.ev_longitude,
             props.voterData.ev_latitude,
@@ -72,14 +72,15 @@ const Mapbox = props => {
           .setPopup(earlyVotingPopup)
           .addTo(map)
           .togglePopup()
-        const normalMarker = new mapboxgl.Marker()
+        new mapboxgl.Marker()
           .setLngLat([props.voterData.longitude, props.voterData.latitude])
           .setPopup(normalVotingPopup)
           .addTo(map)
-          map.flyTo({
-            center:[props.voterData.ev_longitude,props.voterData.ev_latitude],zoom:13,
-            essential:true
-          })
+        map.flyTo({
+          center: [props.voterData.ev_longitude, props.voterData.ev_latitude],
+          zoom: 13,
+          essential: true,
+        })
       }
     })
   }, [props.voterData])
@@ -87,12 +88,12 @@ const Mapbox = props => {
   return (
     <div className="mapbox-container">
       {!content && (
-        <div class="map-overlay">
+        <div className="map-overlay">
           <span>{overlay}</span>
         </div>
       )}
-      <div ref={el => (mapContainer.current = el)} id="mapbox"/>
-      {(schedule||evSchedule)&&<div class="schedule">{content}</div>}
+      <div ref={el => (mapContainer.current = el)} id="mapbox" />
+      {(schedule || evSchedule) && <div className="schedule">{content}</div>}
     </div>
   )
 }

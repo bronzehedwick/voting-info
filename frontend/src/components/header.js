@@ -21,26 +21,14 @@ const Header = ({ siteTitle }) => (
         className="language-selector__button"
         aria-haspopup="true"
         aria-owns="language-selector"
+        aria-expanded="false"
         aria-label="Current language is English. Choose your preferred language."
       >
         English
       </button>
-      <ul
-        id="language-menu"
-        role="menu"
-        aria-expanded="false"
-        className="language-selector__menu"
-      >
-        <li role="menuitem" lang="en">
-          <a href="#" title="English">
-            English
-          </a>
-        </li>
-        <li role="menuitem" lang="es">
-          <a href="#" title="Spanish">
-            Español
-          </a>
-        </li>
+      <ul id="language-menu" className="language-selector__menu">
+        <li lang="en">English</li>
+        <li lang="es">Español</li>
       </ul>
     </div>
   </header>

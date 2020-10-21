@@ -20,7 +20,7 @@ const Tips = ({ headline, items }) => {
 
 Tips.propTypes = {
   headline: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  items: PropTypes.arrayOf(PropTypes.string).isRequired,
 }
 
 export default Tips

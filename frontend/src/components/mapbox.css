@@ -46,6 +46,9 @@
     grid-column: 1;
     grid-gap: 1em;
   }
+  .map-overlay {
+    height: 40vw;
+  }
   .schedule {
     position: relative;
     width: 100%;

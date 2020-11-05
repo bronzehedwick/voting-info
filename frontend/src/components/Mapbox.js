@@ -2,23 +2,25 @@ import React, { useEffect, useRef, useState } from "react"
 import mapboxgl from "mapbox-gl"
 import "mapbox-gl/dist/mapbox-gl.css"
 
-import { early, normal } from "./Schedule"
+// import { early, normal } from "./Schedule"
 import "./mapbox.css"
 
 const Mapbox = props => {
   const mapContainer = useRef(null)
-  const [overlay, setOverlay] = useState("Enter your address above to locate your polling sites!")
-  const [schedule, setSchedule] = useState(null)
-  const [evSchedule, setEVSchedule] = useState(null)
-  const [content, setContent] = useState(null)
-  const createPopup = (earlyBool, name, addr) => {
-    let vote
-    if (earlyBool) vote = "Early"
-    else vote = "Normal"
-    return `
-    <h3>${vote} Voting Location</h3>
-    <p>${name}<br/>${addr}</p>`
-  }
+  const [overlay, setOverlay] = useState(
+    "Enter your address above to locate your polling sites!"
+  )
+  // const [schedule, setSchedule] = useState(null)
+  // const [evSchedule, setEVSchedule] = useState(null)
+  // const [content, setContent] = useState(null)
+  // const createPopup = (earlyBool, name, addr) => {
+  //   let vote
+  //   if (earlyBool) vote = "Early"
+  //   else vote = "Normal"
+  //   return `
+  //   <h3>${vote} Voting Location</h3>
+  //   <p>${name}<br/>${addr}</p>`
+  // }
   useEffect(() => {
     mapboxgl.accessToken = process.env.GATSBY_MAPBOX_ACCESS_TOKEN
     const map = new mapboxgl.Map({
@@ -33,48 +35,48 @@ const Mapbox = props => {
         if (props.voterData.name === "Error") {
           setOverlay("Address not found. Please try again.")
           setContent(null)
-          return 
+          return
         }
-        const earlyVotingPopup = new mapboxgl.Popup({}).setHTML(
-          createPopup(
-            true,
-            props.voterData.ev_site_name,
-            props.voterData.ev_site_address
-          )
-        )
-        earlyVotingPopup.on("open", e => {
-          setContent(early)
-          setEVSchedule(true)
-        })
-        earlyVotingPopup.on("close", e => {
-          setEVSchedule(false)
-        })
+        // const earlyVotingPopup = new mapboxgl.Popup({}).setHTML(
+        //   createPopup(
+        //     true,
+        //     props.voterData.ev_site_name,
+        //     props.voterData.ev_site_address
+        //   )
+        // )
+        // earlyVotingPopup.on("open", e => {
+        //   setContent(early)
+        //   setEVSchedule(true)
+        // })
+        // earlyVotingPopup.on("close", e => {
+        //   setEVSchedule(false)
+        // })
 
-        const normalVotingPopup = new mapboxgl.Popup({}).setHTML(
-          createPopup(
-            false,
-            props.voterData.site_name,
-            props.voterData.site_address
-          )
-        )
-        normalVotingPopup.on("open", e => {
-          setContent(normal)
-          setSchedule(true)
-        })
-        normalVotingPopup.on("close", e => {
-          setSchedule(false)
-        })
+        // const normalVotingPopup = new mapboxgl.Popup({}).setHTML(
+        //   createPopup(
+        //     false,
+        //     props.voterData.site_name,
+        //     props.voterData.site_address
+        //   )
+        // )
+        // normalVotingPopup.on("open", e => {
+        //   setContent(normal)
+        //   setSchedule(true)
+        // })
+        // normalVotingPopup.on("close", e => {
+        //   setSchedule(false)
+        // })
         new mapboxgl.Marker()
           .setLngLat([
             props.voterData.ev_longitude,
             props.voterData.ev_latitude,
           ])
-          .setPopup(earlyVotingPopup)
+          // .setPopup(earlyVotingPopup)
           .addTo(map)
           .togglePopup()
         new mapboxgl.Marker()
           .setLngLat([props.voterData.longitude, props.voterData.latitude])
-          .setPopup(normalVotingPopup)
+          // .setPopup(normalVotingPopup)
           .addTo(map)
         map.flyTo({
           center: [props.voterData.ev_longitude, props.voterData.ev_latitude],

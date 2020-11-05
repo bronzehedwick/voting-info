@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Fjalla+One&display=swap");
 :root {
-  --primary-color: #6D3C7E;
-  --highlight-color: #FF7A00;
-  --danger-color: #FF0000;
-  --secondary-color: #FFDA00;
+  --primary-color: #944CAD;
+  --highlight-color: #49B775;
+  --secondary-color: #98BB35;
+  --tertiary-color: #FFDA00;
 }
 html {
   -ms-text-size-adjust: 100%;
@@ -621,7 +621,7 @@ main {
 }
 footer {
   border-top: 3px solid #000;
-  background-color: var(--secondary-color);
+  background-color: var(--tertiary-color);
   height: 9em;
   display: flex;
   flex-flow: row wrap;
